@@ -95,10 +95,6 @@ public synchronized void stop(){
 	
 	public void tick (){
 		tickCount++;
-		
-		for  (int i=0; i<pixels.length; i++){
-			pixels[i]= i + tickCount;
-		}
 	}
 	public void render(){
 		BufferStrategy bs = getBufferStrategy();
@@ -109,9 +105,8 @@ public synchronized void stop(){
 		
 		Graphics g = bs.getDrawGraphics();
 		
-		
-		
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, getWidth(), getHeight());
 		
 		g.dispose();
 		bs.show();
